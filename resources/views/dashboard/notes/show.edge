@@ -1,0 +1,10 @@
+<h2>{{ note.title }}</h2>
+<p>{{ note.body }}</p>
+
+<a href="{{ route('notes.edit', { id: note.id })}}">Edit</a>
+
+<form action="/dashboard/notes/{{ note.id }}?_method=DELETE" method="POST">
+  {{ csrfField() }}
+
+  <button type="submit">Delete</button>
+</form>

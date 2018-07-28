@@ -16,3 +16,10 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+  .as('home')
+
+Route
+  .group(() => {
+    Route.resource('notes', 'Dashboard/NoteController')
+  })
+  .prefix('dashboard')

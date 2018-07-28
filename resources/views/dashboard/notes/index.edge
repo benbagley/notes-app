@@ -1,0 +1,8 @@
+<h1>Notes</h1>
+
+<a href="{{ route('notes.create') }}">Create a new note</a>
+
+@each(note in notes)
+  <a href="{{ route('notes.show', { id: note.id })}}">{{ note.title }}</a>
+  <p>{{ note.body }}</p>
+@endeach

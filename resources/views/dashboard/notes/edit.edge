@@ -1,0 +1,5 @@
+<h2>Edit {{ note.title }}</h2>
+
+<form action="/dashboard/notes/{{ note.id }}?_method=PUT" method="post">
+  @include('dashboard.notes.form')
+</form>
