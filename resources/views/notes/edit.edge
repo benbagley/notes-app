@@ -6,8 +6,8 @@
   </section>
 
   <section class="w-full container animated fadeIn">
-    <form action="/dashboard/notes/{{ note.id }}?_method=PUT" method="post" class="px-8 pt-6 pb-8">
-      @include('dashboard.notes.form')
+    <form action="/notes/{{ note.id }}?_method=PUT" method="post" class="px-8 pt-6 pb-8">
+      @include('notes.form')
     </form>
   </section>
 @endsection

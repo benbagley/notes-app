@@ -1,30 +1,30 @@
 'use strict'
 
 const { validateAll } = use('Validator')
-const Note = use('App/Models/Dashboard/Note')
+const Note = use('App/Models/Note')
 
 class NoteController {
-  // dashboard/notes
+  // notes
   async index ({ view, auth }) {
     let notes = await Note.all()
 
-    return view.render('dashboard.notes.index', {
+    return view.render('notes.index', {
       notes: notes.toJSON()
     })
   }
 
-  // dashboard/notes/:id
+  // notes/:id
   async show ({ view, params }) {
     let note = await Note.findBy('id', params.id)
 
-    return view.render('dashboard.notes.show', {
+    return view.render('notes.show', {
       note: note.toJSON()
     })
   }
 
-  // dashboard/notes/create
+  // notes/create
   create ({ view }) {
-    return view.render('dashboard.notes.create')
+    return view.render('notes.create')
   }
 
   // store and save note
@@ -58,11 +58,11 @@ class NoteController {
       return response.route('notes.index')
     }
 
-    // dashboard/notes/:id/edit
+    // notes/:id/edit
     async edit ({view, params }) {
       const note = await Note.findBy('id', params.id)
 
-      return view.render('dashboard.notes.edit', {
+      return view.render('notes.edit', {
         note: note.toJSON()
       })
     }

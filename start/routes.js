@@ -20,9 +20,8 @@ Route.on('/').render('welcome')
 
 Route
   .group(() => {
-    Route.resource('notes', 'Dashboard/NoteController')
+    Route.resource('notes', 'NoteController')
   })
-  .prefix('dashboard')
   .middleware(['auth'])
 
 Route.get('/auth/register', 'Auth/RegisterController.index')
@@ -43,4 +42,4 @@ Route.post('/auth/login', 'Auth/LoginController.login')
 
 Route.post('/auth/logout', 'Auth/LogoutController.logout')
   .as('auth.logout')
-  .middleware(['guest'])
+  .middleware(['auth'])

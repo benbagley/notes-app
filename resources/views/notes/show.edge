@@ -15,7 +15,7 @@
         <i class="fal fa-edit text-white"></i> Edit
       </a>
       
-      <form action="/dashboard/notes/{{ note.id }}?_method=DELETE" method="POST" class="inline-block mt-4 lg:mt-0">
+      <form action="/notes/{{ note.id }}?_method=DELETE" method="POST" class="inline-block mt-4 lg:mt-0">
         {{ csrfField() }}
       
         <button type="submit" class="text-sm px-4 py-2 leading-none text-white border border-red bg-red hover:bg-red-dark hover:border-red-dark rounded no-underline">
