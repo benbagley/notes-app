@@ -11,21 +11,29 @@
 
   <section class="block text-left lg:flex w-full lg:items-center lg:w-auto lg:text-right mobile-nav hidden">
     @loggedIn
-      <a href="{{ route('notes.create') }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 mr-2 lg:mt-0">
+      <a href="{{ route('notes.create') }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 mr-4 lg:mt-0">
         <i class="fal fa-plus"></i> Create a new note
       </a>
 
-      <a href="#" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 mr-2 lg:mt-0">
-        {{ user.fullName }}
-      </a>
-      
-      <a href="#" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 mr-2 lg:mt-0">Account Settings</a>
+      <section class="relative inline-block">
+        <section role="button" class="flex items-center dropdown-toggle">
+          <img src="https://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg" alt="profile picture" class="inline-block mt-4 sm:mt-0 h-10 rounded-full">
 
-      <form action="{{ route('auth.logout') }}" method="POST">
-        {{ csrfField() }}
-        
-        <button class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 lg:mt-0">Log Out</button>
-      </form>
+          <a href="#" class="text-sm px-4 py-2 leading-none text-white no-underline mt-4 lg:mt-0">
+            {{ auth.user.fullName }}<i class="fal fa-angle-up ml-2"></i>
+          </a>
+        </section>
+  
+        <section class="sm:absolute bg-white pin-r w-full mt-4 z-10 shadow dropdown-items hidden">
+          <a href="#" class="flex w-full text-sm px-4 py-4 text-grey-darker no-underline hover:bg-grey-lighter">Account Settings</a>
+  
+          <form action="{{ route('auth.logout') }}" method="POST">
+            {{ csrfField() }}
+            
+            <button class="flex w-full text-sm px-4 py-4 text-grey-darker no-underline hover:bg-grey-lighter">Log Out</button>
+          </form>
+        </section>
+      </section>
     @else
       <a href="{{ route('auth.register') }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 mr-4 lg:mt-0">Register</a>
       <a href="{{ route('auth.login') }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 lg:mt-0">Login</a>

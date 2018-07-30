@@ -63,7 +63,8 @@
 
  * { font-family: 'Montserrat', sans-serif; }
 
- .mobile-nav.active { display: block !important; }
+ .mobile-nav.active,
+ .dropdown-items.active { display: block !important; }
 
  .banner { background-image: url('splash.png'); }
 

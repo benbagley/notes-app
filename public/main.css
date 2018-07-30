@@ -6386,7 +6386,8 @@ table {
   font-family: 'Montserrat', sans-serif;
 }
 
-.mobile-nav.active {
+.mobile-nav.active,
+.dropdown-items.active {
   display: block !important;
 }
 
