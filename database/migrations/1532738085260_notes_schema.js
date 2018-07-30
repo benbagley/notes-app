@@ -6,6 +6,7 @@ class NotesSchema extends Schema {
   up () {
     this.create('notes', (table) => {
       table.increments()
+      table.string('slug').unique()
       table.string('title')
       table.text('body')
       table.integer('user_id').unsigned().index()

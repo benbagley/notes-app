@@ -5,7 +5,7 @@ const Note = use('App/Models/Dashboard/Note')
 
 class NoteController {
   // dashboard/notes
-  async index ({ view }) {
+  async index ({ view, auth }) {
     let notes = await Note.all()
 
     return view.render('dashboard.notes.index', {
