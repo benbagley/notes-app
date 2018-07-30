@@ -23,19 +23,24 @@ Route
     Route.resource('notes', 'Dashboard/NoteController')
   })
   .prefix('dashboard')
+  .middleware(['auth'])
 
 Route.get('/auth/register', 'Auth/RegisterController.index')
   .as('auth.register')
+  .middleware(['guest'])
 
 Route.post('/auth/register', 'Auth/RegisterController.register')
   .as('auth.register')
+  .middleware(['guest'])
 
 Route.get('/auth/login', 'Auth/LoginController.index')
   .as('auth.login')
+  .middleware(['guest'])
 
 Route.post('/auth/login', 'Auth/LoginController.login')
   .as('auth.login')
+  .middleware(['guest'])
 
 Route.post('/auth/logout', 'Auth/LogoutController.logout')
   .as('auth.logout')
-  .middleware(['auth'])
+  .middleware(['guest'])

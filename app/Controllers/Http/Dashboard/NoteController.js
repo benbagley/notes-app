@@ -28,13 +28,15 @@ class NoteController {
   }
 
   // store and save note
-  async store ({ request, session, response }) {
-    const data = request.only(['title', 'body'])
+  async store ({ request, session, response, auth }) {
+    const { title, body } = request.all()
 
-    const validation = await validateAll(data, {
+    const rules = {
       title: 'required',
       body: 'required'
-    })
+    }
+
+    const validation = await validateAll(request.all(), rules)
 
     if (validation.fails()) {
       session.withErrors(validation.messages())
@@ -43,7 +45,15 @@ class NoteController {
         return response.redirect('back')
       }
 
-      await Note.create(data)
+      const note = new Note()
+
+      note.fill({
+        title,
+        body,
+        user_id: auth.user.id
+      })
+
+      await note.save()
 
       return response.route('notes.index')
     }
