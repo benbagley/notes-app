@@ -1,9 +1,21 @@
 {{ csrfField() }}
 
-<label for="title">Title</label>
-<input type="text" name="title" value="{{ old('title', note.title || '') }}" required>
+<section class="mb-4">
+  <label class="block text-grey-darker text-sm font-bold mb-2" for="title">
+    Title
+  </label>
 
-<label for="body">Note Content</label>
-<textarea name="body" rows="8" cols="80" placeholder="Note content" required>{{ old('body', note.body || '') }}</textarea>
+  <input name="title" type="text" value="{{ old('title', note.title || '') }}" placeholder="Note title" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight" required>
+</section>
 
-<button type="submit" name="button">Create</button>
+<section class="mb-4">
+  <label class="block text-grey-darker text-sm font-bold mb-2" for="body">
+    Note Content
+  </label>
+
+  <textarea name="body" placeholder="Note content" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight h-64 resize-none" required>{{ old('body', note.body || '') }}</textarea>
+</section>
+
+<button class="bg-green hover:bg-green-dark text-white font-bold py-2 px-4 rounded" type="submit">
+  Create Note
+</button>

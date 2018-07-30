@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {{ style('https://fonts.googleapis.com/css?family=Montserrat:400,600') }}
+  {{ style('https://pro.fontawesome.com/releases/v5.1.0/css/all.css') }}
+  {{ style('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css') }}
+  {{ style('main') }}
+</head>
+<body class="leading-normal tracking-wide">
+  
+  @include('layouts/partials/navigation')
+    @!section('content')
+  
+  {{ script('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js') }}
+  {{ script('scripts') }}
+</body>
+</html>

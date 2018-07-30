@@ -1,0 +1,30 @@
+<nav class="flex items-center bg-green w-screen justify-between flex-wrap p-6">
+  <section class="flex items-center flex-no-shrink mr-6">
+    <a href="{{ route('home') }}" class="block lg:inline-block text-white uppercase lg:mt-0 no-underline mr-4">Notes app</a>
+  </section>
+
+  <section class="block lg:hidden">
+    <button class="flex items-center p-2 nav-toggle">
+      <i class="fal fa-bars text-white"></i>
+    </button>
+  </section>
+
+  <section class="block text-left lg:flex w-full lg:items-center lg:w-auto lg:text-right mobile-nav hidden">
+    @loggedIn
+      <a href="{{ rote('notes.create') }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 mr-2 lg:mt-0">
+        <i class="fal fa-plus"></i> Create a new note
+      </a>
+      
+      <a href="#" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 mr-2 lg:mt-0">Account Settings</a>
+
+      <form action="{{ route('auth.logout') }}" method="POST">
+        {{ csrfField() }}
+        
+        <button class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 lg:mt-0">Log Out</button>
+      </form>
+    @else
+      <a href="{{ route('auth.register') }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 mr-4 lg:mt-0">Register</a>
+      <a href="{{ route('auth.login') }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green-dark bg-green-dark hover:bg-green-darker hover:border-green-darker rounded no-underline mt-4 lg:mt-0">Login</a>
+    @endloggedIn
+  </section>
+</nav>

@@ -1,8 +1,16 @@
-<h1>Notes</h1>
+@layout('layouts.default')
 
-<a href="{{ route('notes.create') }}">Create a new note</a>
+@section('content')
+  <section class="banner py-6 bg-green-dark">
+    <h2 class="text-center font-semibold text-white">Notes</h2>
+  </section>
 
-@each(note in notes)
-  <a href="{{ route('notes.show', { id: note.id })}}">{{ note.title }}</a>
-  <p>{{ note.body }}</p>
-@endeach
+  <section class="container py-6 mx-auto">
+    @each(note in notes)
+      <section class="p-4 mb-4 shadow">
+        <a href="{{ route('notes.show', { id: note.id }) }}" class="text-green text-xl font-semibold no-underline hover:text-green-dark hover:border-b-2 hover:border-green-dark">{{ note.title }}</a>
+        <p class="pt-4 whitespace-pre-wrap">{{ truncate(note.body, 540, '...') }}</p>
+      </section>
+    @endeach
+  </section>
+@endsection

@@ -1,10 +1,27 @@
-<h2>{{ note.title }}</h2>
-<p>{{ note.body }}</p>
+@layout('layouts.default')
 
-<a href="{{ route('notes.edit', { id: note.id })}}">Edit</a>
+@section('content')
+  <section class="banner py-6 bg-green-dark">
+    <h2 class="text-center font-bold text-white">{{ note.title }}</h2>
+  </section>
+  
+  <section class="container">
+    <p class="text-md my-8 p-8 whitespace-pre-wrap shadow">{{ note.body }}</p>
 
-<form action="/dashboard/notes/{{ note.id }}?_method=DELETE" method="POST">
-  {{ csrfField() }}
+    <span class="border-b-2 border-grey"></span>
 
-  <button type="submit">Delete</button>
-</form>
+    <section class="pb-4 text-center">
+      <a href="{{ route('notes.edit', { id: note.id }) }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green bg-green hover:bg-green-dark hover:border-green-dark rounded no-underline mt-4 lg:mt-0">
+        <i class="fal fa-edit text-white"></i> Edit
+      </a>
+      
+      <form action="/dashboard/notes/{{ note.id }}?_method=DELETE" method="POST" class="inline-block mt-4 lg:mt-0">
+        {{ csrfField() }}
+      
+        <button type="submit" class="text-sm px-4 py-2 leading-none text-white border border-red bg-red hover:bg-red-dark hover:border-red-dark rounded no-underline">
+          <i class="fal fa-trash text-white"></i> Delete
+        </button>
+      </form>
+    </section>
+  </section>
+@endsection
