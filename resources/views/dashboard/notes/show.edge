@@ -6,11 +6,11 @@
   </section>
   
   <section class="container">
-    <p class="text-md my-8 p-8 whitespace-pre-wrap shadow">{{ note.body }}</p>
+    <p class="text-md my-8 p-8 whitespace-pre-wrap shadow animated fadeIn">{{ note.body }}</p>
 
     <span class="border-b-2 border-grey"></span>
 
-    <section class="pb-4 text-center">
+    <section class="pb-4 text-center animated fadeIn">
       <a href="{{ route('notes.edit', { id: note.id }) }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green bg-green hover:bg-green-dark hover:border-green-dark rounded no-underline mt-4 lg:mt-0">
         <i class="fal fa-edit text-white"></i> Edit
       </a>

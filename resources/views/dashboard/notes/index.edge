@@ -5,7 +5,7 @@
     <h2 class="text-center font-semibold text-white">Notes</h2>
   </section>
 
-  <section class="container py-6 mx-auto">
+  <section class="container py-6 mx-auto animated fadeIn">
     @each(note in notes)
       <section class="p-4 mb-4 shadow">
         <a href="{{ route('notes.show', { id: note.id }) }}" class="text-green text-xl font-semibold no-underline hover:text-green-dark hover:border-b-2 hover:border-green-dark">{{ note.title }}</a>
