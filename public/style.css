@@ -66,3 +66,9 @@
  .mobile-nav.active { display: block !important; }
 
  .banner { background-image: url('splash.png'); }
+
+ textarea:focus,
+ button:focus,
+ input:focus {
+  outline: none;
+}

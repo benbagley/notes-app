@@ -6394,6 +6394,12 @@ table {
   background-image: url('splash.png');
 }
 
+textarea:focus,
+button:focus,
+input:focus {
+  outline: none;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

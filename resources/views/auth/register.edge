@@ -1,0 +1,55 @@
+@layout('layouts.default')
+
+@section('content')
+  <section class="banner py-6 bg-green-dark">
+    <h2 class="text-center font-bold text-white">Register</h2>
+  </section>
+  
+  <section class="w-full container animated fadeIn">
+    <form action="{{ route('auth.register') }}" method="POST" class="px-8 pt-6 pb-8">
+      {{ csrfField() }}
+
+      <section class="mb-4">
+        <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+          Email
+        </label>
+        <input class="shadow hover:shadow-md appearance-none border-2 border-grey{{ hasErrorFor('email') ? ' border-red' : '' }} rounded w-full py-2 px-3 text-grey-darker"
+          style="outline:none" type="email" name="email" placeholder="demo@example.co.uk" value="{{ old('email', '') }}">
+
+          @if(hasErrorFor('email'))
+          <p class="pt-2 text-red text-xs italic">{{ getErrorFor('email') }}</p>
+        @endif
+      </section>
+
+      <section class="mb-4">
+        <label class="block text-grey-darker text-sm font-bold mb-2" for="fullName">
+          Full Name
+        </label>
+        <input class="shadow hover:shadow-md appearance-none border-2 border-grey{{ hasErrorFor('fullName') ? ' border-red' : '' }} rounded w-full py-2 px-3 text-grey-darker"
+          style="outline:none" type="text" name="fullName" placeholder="John Doe" value="{{ old('usermame', '') }}">
+
+          @if(hasErrorFor('fullName'))
+          <p class="pt-2 text-red text-xs italic">{{ getErrorFor('fullName') }}</p>
+        @endif
+      </section>
+
+      <section class="mb-6">
+        <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+          Password
+        </label>
+        <input class="shadow hover:shadow-md appearance-none border-2 border-grey{{ hasErrorFor('password') ? ' border-red' : '' }} rounded w-full py-2 px-3 text-grey-darker"
+          style="outline:none" type="password" name="password" placeholder="********">
+        
+        @if(hasErrorFor('password'))
+          <p class="pt-2 text-red text-xs italic">{{ getErrorFor('password') }}</p>
+        @endif
+      </section>
+
+      <section class="flex items-center justify-between">
+        <button class="bg-green hover:bg-green-dark w-full text-white font-semibold py-3 px-4 border rounded-sm shadow" type="submit">
+          Sign Up
+        </button>
+      </section>
+    </form>
+  </section>
+@endsection
