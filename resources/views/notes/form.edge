@@ -17,7 +17,7 @@
     Note Content
   </label>
 
-  <textarea name="body" placeholder="Note content" class="shadow appearance-none border-2 border-grey{{ hasErrorFor('title') ? ' border-red' : '' }} rounded w-full pt-2 px-3 text-grey-darker leading-tight h-64 resize-none">{{ old('body', note.body || '') }}</textarea>
+  <textarea name="body" placeholder="Note content" class="shadow appearance-none border-2 border-grey{{ hasErrorFor('title') ? ' border-red' : '' }} rounded w-full pt-2 px-3 text-grey-darker leading-tight h-64 resize-none editor">{{ old('body', note.body || '') }}</textarea>
 
   @if(hasErrorFor('body'))
     <p class="pt-2 text-red text-xs italic">{{ getErrorFor('body') }}</p>

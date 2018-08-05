@@ -9,7 +9,7 @@
     @each(note in notes)
       <section class="p-4 mb-4 shadow">
         <a href="{{ route('notes.show', { id: note.id }) }}" class="text-green text-xl font-semibold no-underline hover:text-green-dark hover:border-b-2 hover:border-green-dark">{{ note.title }}</a>
-        <p class="pt-4 whitespace-pre-wrap">{{ truncate(note.body, 540, '...') }}</p>
+        <p class="pt-4 whitespace-pre-wrap">{{{ truncate(note.body, 540, '...') }}}</p>
       </section>
     @endeach
   </section>

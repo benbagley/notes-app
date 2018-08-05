@@ -5,12 +5,14 @@
     <h2 class="text-center font-bold text-white">{{ note.title }}</h2>
   </section>
   
-  <section class="container">
-    <p class="text-md my-8 p-8 whitespace-pre-wrap shadow animated fadeIn">{{ note.body }}</p>
+  <section class="container py-6 mx-auto animated fadeIn">
+    <section class="p-4 mb-4 shadow">
+      <p class="pt-4 whitespace-pre-wrap">{{{ note.body }}}</p>
+    </section>
 
     <span class="border-b-2 border-grey"></span>
 
-    <section class="pb-4 text-center animated fadeIn">
+    <section class="py-2 text-center">
       <a href="{{ route('notes.edit', { id: note.id }) }}" class="inline-block text-sm px-4 py-2 leading-none text-white border border-green bg-green hover:bg-green-dark hover:border-green-dark rounded no-underline mt-4 lg:mt-0">
         <i class="fal fa-edit text-white"></i> Edit
       </a>
